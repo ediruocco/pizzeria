@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Locandina Menu Pizzeria</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+    <style>
+        /* Stili generali della locandina */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f4e3; /* Sfondo crema chiaro */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Altezza minima per centrare il contenuto */
+            box-sizing: border-box;
+        }
+
+        .poster-container {
+            width: 800px; /* Larghezza fissa per simulare una locandina */
+            min-height: 1100px; /* Altezza minima per simulare un formato poster (es. A3) */
+            background-color: #ffffff; /* Sfondo bianco per il contenuto */
+            border: 10px solid #a03333; /* Bordo rosso scuro */
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Ombra pronunciata */
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-sizing: border-box;
+            background-image: url('https://images.unsplash.com/photo-1549721799-a86d5257a02c?crop=entropy&cs=tinysys&fit=max&fm=jpg&ixid=M3w1MDcxMzJ8MHwxfHNlYXJjaHw4fHxwaXp6YSUyMGJha2luZyUyMG92ZW58ZW52MHx8fHwxNzE2NDAxMjAwfDA&ixlib=rb-4.0.3&q=80&w=1080'); /* Immagine di sfondo leggera */
+            background-size: cover;
+            background-position: center;
+            background-blend-mode: overlay; /* Miscela l'immagine con il colore di sfondo */
+            background-color: rgba(255, 255, 255, 0.85); /* Leggera opacità sul bianco */
+        }
+
+        .poster-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border: 5px dashed #4CAF50; /* Bordo interno tratteggiato verde */
+            margin: 20px;
+            pointer-events: none; /* Non interferisce con il contenuto */
+        }
+
+        .header {
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5em; /* Titolo grande */
+            color: #a03333; /* Rosso scuro */
+            margin-bottom: 5px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .header p {
+            font-family: 'Great Vibes', cursive; /* Font calligrafico per lo slogan */
+            font-size: 2.2em;
+            color: #333;
+            margin-top: 0;
+            font-style: italic;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8em;
+            color: #a03333;
+            margin-top: 50px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 5px;
+            background-color: #4CAF50; /* Verde */
+            margin: 10px auto 0;
+            border-radius: 3px;
+        }
+
+        .category-description {
+            font-size: 1.1em;
+            color: #666;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .pizza-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .pizza-item {
+            margin-bottom: 35px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #ccc; /* Linea tratteggiata tra le pizze */
+        }
+
+        .pizza-item:last-child {
+            border-bottom: none; /* Nessun bordo sull'ultima pizza */
+        }
+
+        .pizza-item h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2em;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .pizza-item p {
+            font-size: 1.1em;
+            color: #555;
+            line-height: 1.5;
+            margin-bottom: 5px;
+        }
+
+        .pizza-item .tagline {
+            font-style: italic;
+            color: #a03333;
+            font-size: 0.95em;
+        }
+
+        .footer {
+            margin-top: 60px;
+            font-size: 1.1em;
+            color: #333;
+        }
+
+        .footer p {
+            margin: 5px 0;
+        }
+
+        .footer .contact-info {
+            font-weight: 600;
+            color: #a03333;
+        }
+
+        /* Immagini decorative */
+        .pizza-image {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%; /* Immagini rotonde */
+            border: 4px solid #4CAF50;
+            margin: 20px auto;
+            display: block; /* Centra l'immagine */
+        }
+
+        /* Stili per la navigazione delle categorie */
+        .category-navigation {
+            margin-top: 30px;
+            margin-bottom: 40px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .category-button {
+            background-color: #a03333; /* Rosso Pizzaiolo */
+            color: #ffffff;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.4em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .category-button:hover {
+            background-color: #c04444; /* Rosso più chiaro al hover */
+            transform: translateY(-2px);
+        }
+
+        .category-button.active {
+            background-color: #4CAF50; /* Verde quando attivo */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Stili per nascondere/mostrare le sezioni */
+        .pizza-category-section {
+            display: none; /* Nascondi tutte le sezioni per default */
+        }
+
+        .pizza-category-section.active-category {
+            display: block; /* Mostra la sezione attiva */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="poster-container">
+        <div class="header">
+            <h1>Pizzeria [Nome Pizzeria]</h1>
+            <p>"Dove la tradizione incontra il sapore autentico"</p>
+        </div>
+
+        <h2 class="section-title">Le Nostre Pizze in Pala</h2>
+
+        <div class="category-navigation">
+            <button class="category-button active" onclick="showCategory('traditional-pizzas', this)">Tradizionale</button>
+            <button class="category-button" onclick="showCategory('verace-pizzas', this)">Verace</button>
+        </div>
+
+        <div id="traditional-pizzas" class="pizza-category-section active-category">
+            <h3 class="section-title" style="font-size: 2.2em; margin-top: 40px; color: #333;">LA TRADIZIONALE GRAGNANESE</h3>
+            <p class="category-description">Il cuore della Campania, reinterpretato con ingredienti d'eccellenza.</p>
+            <ul class="pizza-list">
+                <li class="pizza-item">
+                    <img src="https://images.unsplash.com/photo-1579730559132-ff45b9b6e828?crop=entropy&cs=tinysys&fit=max&fm=jpg&ixid=M3w1MDcxMzJ8MHwxfHNlYXJjaHwxNXx8cGl6emElMjBjYXByaWNjaW9zYXxlbnwwfHx8fDE3MTY0MDEyMDZ8MA&ixlib=rb-4.0.3&q=80&w=1080" alt="[Image of Pizza Capricciosa]" class="pizza-image">
+                    <h3>Capricciosa</h3>
+                    <p>Prosciutto cotto, pomodoro San Marzano DOP, funghi chiodini di *Zi Peppin*, fior di latte di Agerola.</p>
+                    <p class="tagline">Un classico intramontabile, con un tocco autentico.</p>
+                </li>
+                <li class="pizza-item">
+                    <img src="https://images.unsplash.com/photo-1513104870139-445b85edc53f?crop=entropy&cs=tinysys&fit=max&fm=jpg&ixid=M3w1MDcxMzJ8MHwxfHNlYXJjaHwxNHx8cGl6emElMjBwZXRyYSUyMGZyaXR0YXxlbnwwfHx8fDE3MTY0MDEyMDh8MA&ixlib=rb-4.0.3&q=80&w=1080" alt="[Image of Pizza 3P]" class="pizza-image">
+                    <h3>3P</h3>
+                    <p>Porchetta, Provola, Patatine (600gr).</p>
+                    <p class="tagline">Per i veri amanti della golosità, un'esplosione di sapori!</p>
+                </li>
+            </ul>
+        </div>
+
+        <div id="verace-pizzas" class="pizza-category-section">
+            <h3 class="section-title" style="font-size: 2.2em; margin-top: 40px; color: #333;">LA NAPOLETANA VERACE DEI VICOLI DI FORCELLA</h3>
+            <p class="category-description">Il carattere autentico di Napoli, in ogni singolo morso.</p>
+            <ul class="pizza-list">
+                <li class="pizza-item">
+                    <img src="https://images.unsplash.com/photo-1628886367773-f14d952672a9?crop=entropy&cs=tinysys&fit=max&fm=jpg&ixid=M3w1MDcxMzJ8MHwxfHNlYXJjaHw3fHxqYW5jaG92eSUyMHBpenphfGVufDB8fHx8MTcxNjQwMTIwOHww&ixlib=rb-4.0.3&q=80&w=1080" alt="[Image of Pizza Mast' Antonio]" class="pizza-image">
+                    <h3>Mast' Antonio</h3>
+                    <p>Pomodoro San Marzano DOP, aglio, origano, olive nere, capperi, olio EVO. All'uscita: acciughe del *Cantabrico*.</p>
+                    <p class="tagline">Un tributo al sapore intenso del mare, per veri intenditori.</p>
+                </li>
+            </ul>
+        </div>
+
+        <div class="footer">
+            <p>Vi aspettiamo per un'esperienza di gusto indimenticabile!</p>
+            <p class="contact-info">Pizzeria [Nome Pizzeria]</p>
+            <p class="contact-info">[Indirizzo della Pizzeria]</p>
+            <p class="contact-info">Tel: [Numero di Telefono]</p>
+        </div>
+    </div>
+
+    <script>
+        // Funzione per mostrare la categoria selezionata e nascondere le altre
+        function showCategory(categoryId, clickedButton) {
+            // Nascondi tutte le sezioni delle pizze
+            const sections = document.querySelectorAll('.pizza-category-section');
+            sections.forEach(section => {
+                section.classList.remove('active-category');
+            });
+
+            // Rimuovi la classe 'active' da tutti i bottoni
+            const buttons = document.querySelectorAll('.category-button');
+            buttons.forEach(button => {
+                button.classList.remove('active');
+            });
+
+            // Mostra la sezione della categoria selezionata
+            const activeSection = document.getElementById(categoryId);
+            if (activeSection) {
+                activeSection.classList.add('active-category');
+            }
+
+            // Aggiungi la classe 'active' al bottone cliccato
+            if (clickedButton) {
+                clickedButton.classList.add('active');
+            }
+        }
+
+        // Mostra la categoria "Tradizionale" all'apertura della pagina
+        document.addEventListener('DOMContentLoaded', () => {
+            showCategory('traditional-pizzas', document.querySelector('.category-button'));
+        });
+    </script>
+
+</body>
+</html>
