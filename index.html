@@ -116,37 +116,23 @@
             border-bottom: 1px solid #444; /* Linea sottile grigio scuro */
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: center; /* Centra gli elementi figli orizzontalmente */
         }
 
         .pizza-item:last-child {
             border-bottom: none;
         }
 
-        .pizza-item-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            width: 100%;
-            margin-bottom: 8px;
-        }
+        /* Rimosso .pizza-item-header e le sue proprietà */
+        /* Il nome della pizza (h3) sarà ora centrato direttamente sotto l'immagine */
 
-        .pizza-item-header h3 {
+        .pizza-item h3 {
             font-family: 'Playfair Display', serif;
             font-size: 2.2em;
             color: var(--accent-color); /* Nuovo colore */
-            margin: 0;
-            text-align: left;
-            flex-grow: 1;
-        }
-
-        .pizza-item-header .price {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.8em;
-            color: var(--accent-color); /* Nuovo colore */
-            font-weight: 600;
-            margin-left: 20px;
-            white-space: nowrap;
+            margin: 0; /* Rimuovi margini predefiniti */
+            text-align: center; /* Centra il testo del nome della pizza */
+            margin-top: 10px; /* Aggiungi un po' di spazio tra immagine e nome */
         }
 
         .pizza-item p {
@@ -188,7 +174,7 @@
             object-fit: cover;
             border-radius: 8px;
             border: 4px solid var(--darker-accent-color); /* Nuovo colore */
-            margin: 20px auto;
+            margin: 20px auto 0; /* Margine inferiore 0 per avvicinare il nome */
             display: block;
         }
 
@@ -258,23 +244,24 @@
             <p class="category-description">Il cuore della Campania, reinterpretato con ingredienti d'eccellenza.</p>
             <ul class="pizza-list">
                 <li class="pizza-item">
-                    <img src=".\images/Capricciosa.jpg" alt="[Immagine di Pizza Capricciosa]" class="pizza-image">
-                    <div class="pizza-item-header">
-                        <h3>Capricciosa</h3>
-                        <span class="price">€ 9,50</span>
-                    </div>
+                    <img src="./images/Capricciosa.jpg" alt="[Immagine di Pizza Capricciosa]" class="pizza-image">
+                    <h3>Capricciosa</h3>
                     <p>Prosciutto cotto, pomodoro San Marzano DOP, funghi chiodini di *Zi Peppin*, fior di latte di Agerola.</p>
                     <p class="tagline">Un classico intramontabile, con un tocco autentico.</p>
                 </li>
                 <li class="pizza-item">
-                    <img src=".\images/3P.jpg" alt="[Immagine di Pizza 3P]" class="pizza-image">
-                    <div class="pizza-item-header">
-                        <h3>3P</h3>
-                        <span class="price">€ 12,00</span>
-                    </div>
-                    <p>Porchetta, Provola, Patatine (600gr).</p>
+                    <img src="./images/3P.jpg" alt="[Immagine di Pizza 3P]" class="pizza-image">
+                    <h3>3P</h3>
+                    <p>Porchetta originale di Ariccia, Provola dei monti lattari, patate al forno, olio evo, basilico.</p>
                     <p class="tagline">Per i veri amanti della golosità, un'esplosione di sapori!</p>
                 </li>
+                <li class="pizza-item">
+                    <img src="./images/Pe Criatur.jpg" alt="[Immagine di Pizza 3P]" class="pizza-image">
+                    <h3>Pe Criatur</h3>
+                    <p>fior di latte di Agerola, prosciutto cotto di Parma, mais, olio evo, basilico.</p>
+                    <p class="tagline">Per i piccoli buongustai: una delizia morbida e colorata!</p>
+                </li>
+
             </ul>
         </div>
 
@@ -283,32 +270,30 @@
             <p class="category-description">Ogni singolo morso ti porta nei più nascosti vicoli di FORCELLA.</p>
             <ul class="pizza-list">
                 <li class="pizza-item">
-                    <img src=".\images/Diabla.jpg" alt="[Immagine di Pizza Mast' Antonio]" class="pizza-image">
-                    <div class="pizza-item-header">
-                        <h3>Mast' Antonio</h3>
-                        <span class="price">€ 8,00</span>
-                    </div>
-                    <p>Pomodoro San Marzano DOP, aglio, origano, olive nere, capperi, olio EVO. All'uscita: acciughe del *Cantabrico*.</p>
-                    <p class="tagline">Un tributo al sapore intenso del mare, per veri intenditori.</p>
+                    <img src="./images/Margherita.jpg" alt="[Immagine di Pizza Diabla]" class="pizza-image">
+                    <h3>Margherita</h3>
+                    <p>Pomodoro San Marzano DOP, live nere, capperi, olio EVO. All'uscita: acciughe del *Cantabrico*.</p>
+                    <p class="tagline">La tradizione che diventa innovazione, la semplicità che si trasforma in poesia.</p>
                 </li>
-		<li class="pizza-item">
-                    <img src=".\images/Donna Sofia.jpg" alt="[Immagine di Pizza Mast' Antonio]" class="pizza-image">
-                    <div class="pizza-item-header">
-                        <h3>Donna Sofia</h3>
-                        <span class="price">€ 8,00</span>
-                    </div>
-                    <p>Pomodorino giallo della Piana del Sele, fior di latte di Agerola, lardo di colonnata IGP, scaglie di provolone del monaco, basilico.</p>
+                <li class="pizza-item">
+                    <img src="./images/Diabla.jpg" alt="[Immagine di Pizza Diabla]" class="pizza-image">
+                    <h3>Mast' Antonio</h3>
+                    <p>Pomodoro San Marzano DOP, aglio, origano, olive nere, capperi, olio EVO. All'uscita: acciughe del *Cantabrico*.</p>
                     <p class="tagline">Un tributo al sapore intenso del mare, per veri intenditori.</p>
                 </li>
 
                 <li class="pizza-item">
-                    <img src="https://placehold.co/200x200/FFDDAA/1a1a1a?text=Melanzana" alt="[Immagine di Pizza Melanzana]" class="pizza-image">
-                    <div class="pizza-item-header">
-                        <h3>Melanzana</h3>
-                        <span class="price">€ 10,50</span>
-                    </div>
-                    <p>Melanzane fritte, pomodoro San Marzano DOP, fior di latte di Agerola, basilico, scaglie di ricotta salata.</p>
+                    <img src="./images/Donna Sofia.jpg" alt="[Immagine di Pizza Donna Annamaria]" class="pizza-image">
+                    <h3>Donna Annamaria</h3>
+                    <p>vellutata di zucchine, fior di latte di Agerola, olio evo, basilico. All'uscita: chips di zucchine fritte</p>
                     <p class="tagline">Un classico rivisitato, con la dolcezza delle melanzane.</p>
+                </li>
+
+                <li class="pizza-item">
+                    <img src="./images/Don Mauro.jpg" alt="[Immagine di Pizza Donna Sofia]" class="pizza-image">
+                    <h3>Donna Sofia</h3>
+                    <p>Pomodorino giallo della Piana del Sele, fior di latte di Agerola, lardo di colonnata IGP, scaglie di provolone del monaco, basilico.</p>
+                    <p class="tagline">Un tributo al sapore intenso del mare, per veri intenditori.</p>
                 </li>
             </ul>
         </div>
