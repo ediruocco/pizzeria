@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Locandina Menu Pizzeria</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
     <style>
         /* Stili generali della locandina */
         body {
             font-family: 'Montserrat', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f8f4e3; /* Sfondo crema chiaro */
+            background-color: #121212; /* Sfondo scuro quasi nero */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -19,13 +19,21 @@
             box-sizing: border-box;
         }
 
+        /* Colore arancione più tenue e tendente al giallo */
+        :root {
+            --accent-color: #FFDDAA; /* Arancione tenue tendente al giallo */
+            --darker-accent-color: #FFC87C; /* Leggermente più scuro per bordi/sottolineature */
+            --button-bg-color: #8B0000; /* Rosso scuro per i bottoni */
+            --button-hover-color: #A52A2A; /* Rosso più chiaro al hover */
+        }
+
         .poster-container {
             width: 800px; /* Larghezza fissa per simulare una locandina */
             min-height: 1100px; /* Altezza minima per simulare un formato poster (es. A3) */
-            background-color: #ffffff; /* Sfondo bianco per il contenuto */
-            border: 10px solid #a03333; /* Bordo rosso scuro */
+            background-color: #1e1e1e; /* Sfondo scuro per il contenuto, leggermente più chiaro del body */
+            border: 10px solid var(--darker-accent-color); /* Bordo con il nuovo colore */
             padding: 40px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Ombra pronunciata */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7); /* Ombra più pronunciata per contrasto */
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -34,7 +42,7 @@
             background-size: cover;
             background-position: center;
             background-blend-mode: overlay; /* Miscela l'immagine con il colore di sfondo */
-            background-color: rgba(255, 255, 255, 0.85); /* Leggera opacità sul bianco */
+            background-color: rgba(30, 30, 30, 0.85); /* Leggera opacità sul background scuro */
         }
 
         .poster-container::before {
@@ -44,7 +52,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            border: 5px dashed #4CAF50; /* Bordo interno tratteggiato verde */
+            border: 5px dashed var(--darker-accent-color); /* Bordo interno tratteggiato con il nuovo colore */
             margin: 20px;
             pointer-events: none; /* Non interferisce con il contenuto */
         }
@@ -56,15 +64,15 @@
         .header h1 {
             font-family: 'Playfair Display', serif;
             font-size: 4.5em; /* Titolo grande */
-            color: #a03333; /* Rosso scuro */
+            color: var(--accent-color); /* Nuovo colore */
             margin-bottom: 5px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5); /* Ombra più scura per risalto */
         }
 
         .header p {
-            font-family: 'Playfair Display', cursive; /* Font calligrafico per lo slogan */
-            font-size: 2.2em;
-            color: #333;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.7em;
+            color: var(--accent-color); /* Nuovo colore */
             margin-top: 0;
             font-style: italic;
         }
@@ -72,7 +80,7 @@
         .section-title {
             font-family: 'Playfair Display', serif;
             font-size: 2.8em;
-            color: #a03333;
+            color: var(--accent-color); /* Nuovo colore */
             margin-top: 50px;
             margin-bottom: 20px;
             position: relative;
@@ -84,14 +92,14 @@
             display: block;
             width: 100px;
             height: 5px;
-            background-color: #4CAF50; /* Verde */
+            background-color: var(--darker-accent-color); /* Nuovo colore */
             margin: 10px auto 0;
             border-radius: 3px;
         }
 
         .category-description {
             font-size: 1.1em;
-            color: #666;
+            color: #F0F0F0; /* Bianco sporco per le descrizioni */
             margin-bottom: 30px;
             font-style: italic;
         }
@@ -105,37 +113,63 @@
         .pizza-item {
             margin-bottom: 35px;
             padding-bottom: 15px;
-            border-bottom: 1px dashed #ccc; /* Linea tratteggiata tra le pizze */
+            border-bottom: 1px solid #444; /* Linea sottile grigio scuro */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .pizza-item:last-child {
-            border-bottom: none; /* Nessun bordo sull'ultima pizza */
+            border-bottom: none;
         }
 
-        .pizza-item h3 {
+        .pizza-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            width: 100%;
+            margin-bottom: 8px;
+        }
+
+        .pizza-item-header h3 {
             font-family: 'Playfair Display', serif;
             font-size: 2.2em;
-            color: #333;
-            margin-bottom: 8px;
+            color: var(--accent-color); /* Nuovo colore */
+            margin: 0;
+            text-align: left;
+            flex-grow: 1;
+        }
+
+        .pizza-item-header .price {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8em;
+            color: var(--accent-color); /* Nuovo colore */
+            font-weight: 600;
+            margin-left: 20px;
+            white-space: nowrap;
         }
 
         .pizza-item p {
             font-size: 1.1em;
-            color: #555;
+            color: #F0F0F0;
             line-height: 1.5;
             margin-bottom: 5px;
+            text-align: center;
         }
 
         .pizza-item .tagline {
             font-style: italic;
-            color: #a03333;
+            color: #F0F0F0;
             font-size: 0.95em;
         }
 
         .footer {
             margin-top: 60px;
             font-size: 1.1em;
-            color: #333;
+            color: #F0F0F0;
+            background-color: #0a0a0a;
+            padding: 20px 0;
+            border-top: 5px solid var(--darker-accent-color); /* Nuovo colore */
         }
 
         .footer p {
@@ -144,32 +178,33 @@
 
         .footer .contact-info {
             font-weight: 600;
-            color: #a03333;
+            color: var(--accent-color); /* Nuovo colore */
         }
 
         /* Immagini decorative */
         .pizza-image {
-            width: 150px;
-            height: 150px;
+            width: 200px;
+            height: 200px;
             object-fit: cover;
-            border-radius: 50%; /* Immagini rotonde */
-            border: 4px solid #4CAF50;
+            border-radius: 8px;
+            border: 4px solid var(--darker-accent-color); /* Nuovo colore */
             margin: 20px auto;
-            display: block; /* Centra l'immagine */
+            display: block;
         }
 
-        /* Stili per la navigazione delle categorie */
+        /* Stili per la navigazione delle categorie - Verticale */
         .category-navigation {
             margin-top: 30px;
             margin-bottom: 40px;
             display: flex;
-            justify-content: center;
-            gap: 20px;
+            flex-direction: column; /* Imposta la direzione dei pulsanti in verticale */
+            align-items: center; /* Centra i pulsanti orizzontalmente */
+            gap: 15px; /* Spazio tra i pulsanti verticali */
         }
 
         .category-button {
-            background-color: #a03333; /* Rosso Pizzaiolo */
-            color: #ffffff;
+            background-color: var(--button-bg-color); /* Rosso scuro per i bottoni */
+            color: #F0F0F0;
             padding: 15px 30px;
             border: none;
             border-radius: 8px;
@@ -177,26 +212,29 @@
             font-weight: 600;
             cursor: pointer;
             transition: background-color 0.3s ease, transform 0.2s ease;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+            width: 80%; /* Rendi i pulsanti più larghi per riempire lo spazio */
+            max-width: 300px; /* Limita la larghezza massima per non essere eccessivi */
         }
 
         .category-button:hover {
-            background-color: #c04444; /* Rosso più chiaro al hover */
+            background-color: var(--button-hover-color); /* Rosso più chiaro al hover */
             transform: translateY(-2px);
         }
 
         .category-button.active {
-            background-color: #4CAF50; /* Verde quando attivo */
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            background-color: var(--accent-color); /* Nuovo colore quando attivo */
+            color: #1a1a1a; /* Testo scuro sul bottone attivo */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
         }
 
         /* Stili per nascondere/mostrare le sezioni */
         .pizza-category-section {
-            display: none; /* Nascondi tutte le sezioni per default */
+            display: none;
         }
 
         .pizza-category-section.active-category {
-            display: block; /* Mostra la sezione attiva */
+            display: block;
         }
     </style>
 </head>
@@ -216,18 +254,24 @@
         </div>
 
         <div id="traditional-pizzas" class="pizza-category-section active-category">
-            <h3 class="section-title" style="font-size: 2.2em; margin-top: 40px; color: #333;">LA TRADIZIONALE GRAGNANESE</h3>
+            <h3 class="section-title" style="font-size: 2.2em; margin-top: 40px; color: var(--accent-color);">LA TRADIZIONALE GRAGNANESE</h3>
             <p class="category-description">Il cuore della Campania, reinterpretato con ingredienti d'eccellenza.</p>
             <ul class="pizza-list">
-                <li class="pizza-item"> 
-                    <img src=".\images/Capricciosa.jpg" alt="[Image of Pizza Capricciosa]" class="pizza-image"> 
-                    <h3>Capricciosa</h3>
+                <li class="pizza-item">
+                    <img src=".\images/Capricciosa.jpg" alt="[Immagine di Pizza Capricciosa]" class="pizza-image">
+                    <div class="pizza-item-header">
+                        <h3>Capricciosa</h3>
+                        <span class="price">€ 9,50</span>
+                    </div>
                     <p>Prosciutto cotto, pomodoro San Marzano DOP, funghi chiodini di *Zi Peppin*, fior di latte di Agerola.</p>
                     <p class="tagline">Un classico intramontabile, con un tocco autentico.</p>
                 </li>
                 <li class="pizza-item">
-                    <img src="C:\Users\0057006\Documents\GitHub\pizzeria\images\3P.jpg" alt="[Image of Pizza 3P]" class="pizza-image">
-                    <h3>3P</h3>
+                    <img src=".\images/3P.jpg" alt="[Immagine di Pizza 3P]" class="pizza-image">
+                    <div class="pizza-item-header">
+                        <h3>3P</h3>
+                        <span class="price">€ 12,00</span>
+                    </div>
                     <p>Porchetta, Provola, Patatine (600gr).</p>
                     <p class="tagline">Per i veri amanti della golosità, un'esplosione di sapori!</p>
                 </li>
@@ -235,58 +279,78 @@
         </div>
 
         <div id="verace-pizzas" class="pizza-category-section">
-            <h3 class="section-title" style="font-size: 2.2em; margin-top: 40px; color: #333;">LA VIOLENTEMENTE VERACE NAPOLETANA</h3>
+            <h3 class="section-title" style="font-size: 2.2em; margin-top: 40px; color: var(--accent-color);">LA VIOLENTEMENTE VERACE NAPOLETANA</h3>
             <p class="category-description">Ogni singolo morso ti porta nei più nascosti vicoli di FORCELLA.</p>
             <ul class="pizza-list">
                 <li class="pizza-item">
-                    <img src="https://images.unsplash.com/photo-1628886367773-f14d952672a9?crop=entropy&cs=tinysys&fit=max&fm=jpg&ixid=M3w1MDcxMzJ8MHwxfHNlYXJjaHw3fHxqYW5jaG92eSUyMHBpenphfGVufDB8fHx8MTcxNjQwMTIwOHww&ixlib=rb-4.0.3&q=80&w=1080" alt="[Image of Pizza Mast' Antonio]" class="pizza-image">
-                    <h3>Mast' Antonio</h3>
+                    <img src=".\images/Diabla.jpg" alt="[Immagine di Pizza Mast' Antonio]" class="pizza-image">
+                    <div class="pizza-item-header">
+                        <h3>Mast' Antonio</h3>
+                        <span class="price">€ 8,00</span>
+                    </div>
                     <p>Pomodoro San Marzano DOP, aglio, origano, olive nere, capperi, olio EVO. All'uscita: acciughe del *Cantabrico*.</p>
                     <p class="tagline">Un tributo al sapore intenso del mare, per veri intenditori.</p>
+                </li>
+		<li class="pizza-item">
+                    <img src=".\images/Donna Sofia.jpg" alt="[Immagine di Pizza Mast' Antonio]" class="pizza-image">
+                    <div class="pizza-item-header">
+                        <h3>Donna Sofia</h3>
+                        <span class="price">€ 8,00</span>
+                    </div>
+                    <p>Pomodorino giallo della Piana del Sele, fior di latte di Agerola, lardo di colonnata IGP, scaglie di provolone del monaco, basilico.</p>
+                    <p class="tagline">Un tributo al sapore intenso del mare, per veri intenditori.</p>
+                </li>
+
+                <li class="pizza-item">
+                    <img src="https://placehold.co/200x200/FFDDAA/1a1a1a?text=Melanzana" alt="[Immagine di Pizza Melanzana]" class="pizza-image">
+                    <div class="pizza-item-header">
+                        <h3>Melanzana</h3>
+                        <span class="price">€ 10,50</span>
+                    </div>
+                    <p>Melanzane fritte, pomodoro San Marzano DOP, fior di latte di Agerola, basilico, scaglie di ricotta salata.</p>
+                    <p class="tagline">Un classico rivisitato, con la dolcezza delle melanzane.</p>
                 </li>
             </ul>
         </div>
 
         <div class="footer">
-            <p>Vi aspettiamo per un'esperienza di gusto indimenticabile!</p>
-            <p class="contact-info">Pizzeria degli Artisti</p>
-            <p class="contact-info">Villa Cuomo</p>
-            <p class="contact-info">Tel: Non si accettano prenotazioni</p>
+            <p>Pizzeria degli Artisti</p>
+            <p class="contact-info">Via Roma, 123 - Napoli</p>
+            <p class="contact-info">Tel: 081 12345678</p>
         </div>
     </div>
 
     <script>
-        // Funzione per mostrare la categoria selezionata e nascondere le altre
+        // Funzione per mostrare la categoria selezionata
         function showCategory(categoryId, clickedButton) {
-            // Nascondi tutte le sezioni delle pizze
+            // Nasconde tutte le sezioni di pizza
             const sections = document.querySelectorAll('.pizza-category-section');
             sections.forEach(section => {
                 section.classList.remove('active-category');
             });
 
-            // Rimuovi la classe 'active' da tutti i bottoni
-            const buttons = document.querySelectorAll('.category-button');
-            buttons.forEach(button => {
-                button.classList.remove('active');
-            });
-
-            // Mostra la sezione della categoria selezionata
+            // Mostra la sezione desiderata
             const activeSection = document.getElementById(categoryId);
             if (activeSection) {
                 activeSection.classList.add('active-category');
             }
 
-            // Aggiungi la classe 'active' al bottone cliccato
+            // Rimuove la classe 'active' da tutti i bottoni
+            const buttons = document.querySelectorAll('.category-button');
+            buttons.forEach(button => {
+                button.classList.remove('active');
+            });
+
+            // Aggiunge la classe 'active' al bottone cliccato
             if (clickedButton) {
                 clickedButton.classList.add('active');
             }
         }
 
-        // Mostra la categoria "Tradizionale" all'apertura della pagina
-        document.addEventListener('DOMContentLoaded', () => {
-            showCategory('traditional-pizzas', document.querySelector('.category-button'));
-        });
+        // Carica la prima categoria di default all'avvio
+        window.onload = function() {
+            showCategory('traditional-pizzas', document.querySelector('.category-button.active'));
+        };
     </script>
-
 </body>
 </html>
