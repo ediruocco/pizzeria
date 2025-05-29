@@ -236,7 +236,7 @@ body {
     height: 100%; /* Altezza completa */
     overflow: auto; /* Abilita lo scroll se l'immagine è troppo grande */
     background-color: rgba(0,0,0,0.9); /* Sfondo nero semi-trasparente */
-    display: flex; /* Usa flexbox per centrare il contenuto */
+    /*display: flex; /* Usa flexbox per centrare il contenuto */
     justify-content: center; /* Centra orizzontalmente */
     align-items: center; /* Centra verticalmente */
 }
