@@ -165,13 +165,19 @@ body {
 
 /* Immagini decorative */
 .pizza-image {
-    width: 200px;
-    height: 200px;
+    width: 250px; /* Immagine più grande */
+    height: 250px; /* Immagine più grande */
     object-fit: cover;
     border-radius: 8px;
     border: 4px solid var(--darker-accent-color); /* Nuovo colore */
     margin: 20px auto 0; /* Margine inferiore 0 per avvicinare il nome */
     display: block;
+    cursor: pointer; /* Indica che l'immagine è cliccabile */
+    transition: transform 0.2s ease-in-out; /* Animazione per l'ingrandimento */
+}
+
+.pizza-image:hover {
+    transform: scale(1.05); /* Leggero ingrandimento al passaggio del mouse */
 }
 
 /* Stili per la navigazione delle categorie - Verticale */
@@ -219,6 +225,69 @@ body {
     display: block;
 }
 
+/* Stili per il Modal (finestra di dialogo per l'immagine ingrandita) */
+.modal {
+    display: none; /* Nascosto di default */
+    position: fixed; /* Posizione fissa per coprire l'intera finestra */
+    z-index: 1000; /* Posiziona il modal sopra tutto il resto */
+    left: 0;
+    top: 0;
+    width: 100%; /* Larghezza completa */
+    height: 100%; /* Altezza completa */
+    overflow: auto; /* Abilita lo scroll se l'immagine è troppo grande */
+    background-color: rgba(0,0,0,0.9); /* Sfondo nero semi-trasparente */
+    display: flex; /* Usa flexbox per centrare il contenuto */
+    justify-content: center; /* Centra orizzontalmente */
+    align-items: center; /* Centra verticalmente */
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 80%; /* Larghezza massima dell'immagine nel modal */
+    max-height: 80%; /* Altezza massima dell'immagine nel modal */
+    border-radius: 8px;
+    border: 5px solid var(--accent-color);
+}
+
+/* Pulsante di chiusura del modal */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Animazione per il modal */
+.modal-content {
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)}
+    to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+    from {transform:scale(0)}
+    to {transform:scale(1)}
+}
+
+
 /* --- Media Queries per la responsività --- */
 
 /* Schermi piccoli (es. cellulari in verticale) */
@@ -265,8 +334,8 @@ body {
     }
 
     .pizza-image {
-        width: 150px; /* Riduci la dimensione delle immagini delle pizze */
-        height: 150px;
+        width: 180px; /* Riduci la dimensione delle immagini delle pizze */
+        height: 180px;
         margin: 15px auto 0;
     }
 
@@ -300,6 +369,11 @@ body {
         padding: 15px 0;
         font-size: 0.9em;
     }
+
+    .modal-content {
+        max-width: 90%;
+        max-height: 90%;
+    }
 }
 
 /* Schermi molto piccoli (es. iPhone 5/SE) */
@@ -329,8 +403,8 @@ body {
     }
 
     .pizza-image {
-        width: 120px;
-        height: 120px;
+        width: 150px;
+        height: 150px;
     }
 
     .pizza-item h3 {

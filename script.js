@@ -30,6 +30,27 @@ function showCategory(categoryId, clickedButton) {
     }
 }
 
+/**
+ * Funzione per aprire il modal e mostrare l'immagine ingrandita.
+ * @param {string} imgSrc - L'URL dell'immagine da visualizzare nel modal.
+ */
+function openModal(imgSrc) {
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("img01");
+
+    modal.style.display = "flex"; // Mostra il modal
+    modalImg.src = imgSrc; // Imposta la sorgente dell'immagine nel modal
+}
+
+/**
+ * Funzione per chiudere il modal.
+ */
+function closeModal() {
+    const modal = document.getElementById("imageModal");
+    modal.style.display = "none"; // Nasconde il modal
+}
+
+
 // Esegue il codice quando l'intera pagina è stata caricata
 window.onload = function() {
     // Mostra la prima categoria di default all'avvio dell'applicazione.
