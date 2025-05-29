@@ -1,302 +1,328 @@
 /* Stili generali della locandina */
 body {
-    font-family: 'Montserrat', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #121212; /* Sfondo scuro quasi nero */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh; /* Altezza minima per centrare il contenuto */
-    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif; /* Imposta la famiglia di font principale per tutto il corpo del documento */
+    margin: 0; /* Rimuove i margini predefiniti del body */
+    padding: 0; /* Rimuove il padding predefinito del body */
+    background-color: #121212; /* Imposta il colore di sfondo del body su un grigio molto scuro, quasi nero */
+    display: flex; /* Abilita Flexbox per il body per centrare il contenuto verticalmente e orizzontalmente */
+    justify-content: center; /* Centra gli elementi figli orizzontalmente all'interno del body */
+    align-items: center; /* Centra gli elementi figli verticalmente all'interno del body */
+    min-height: 100vh; /* Assicura che il body occupi almeno l'intera altezza della viewport */
+    box-sizing: border-box; /* Include padding e bordo nella dimensione totale dell'elemento, per un controllo più preciso del layout */
 }
 
-/* Colore arancione più tenue e tendente al giallo */
+/* Variabili CSS per definire una palette di colori riutilizzabile */
 :root {
-    --accent-color: #FFDDAA; /* Arancione tenue tendente al giallo */
-    --darker-accent-color: #FFC87C; /* Leggermente più scuro per bordi/sottolineature */
-    --button-bg-color: #8B0000; /* Rosso scuro per i bottoni */
-    --button-hover-color: #A52A2A; /* Rosso più chiaro al hover */
+    --accent-color: #FFDDAA; /* Colore principale d'accento: un arancione tenue tendente al giallo */
+    --darker-accent-color: #FFC87C; /* Una versione leggermente più scura del colore d'accento, usata per bordi e sottolineature */
+    --button-bg-color: #8B0000; /* Colore di sfondo per i bottoni: un rosso scuro */
+    --button-hover-color: #A52A2A; /* Colore dei bottoni al passaggio del mouse (hover): un rosso più chiaro */
 }
 
+/* Stili per il contenitore principale che simula una locandina */
 .poster-container {
-    width: 800px; /* Larghezza fissa per simulare una locandina */
-    min-height: 1100px; /* Altezza minima per simulare un formato poster (es. A3) */
-    background-color: #1e1e1e; /* Sfondo scuro per il contenuto, leggermente più chiaro del body */
-    border: 10px solid var(--darker-accent-color); /* Bordo con il nuovo colore */
-    padding: 40px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7); /* Ombra più pronunciata per contrasto */
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    box-sizing: border-box;
-    /* Immagine di sfondo leggera con fallback per l'URL */
-    background-image: url('https://images.unsplash.com/photo-1549721799-a86d5257a02c?crop=entropy&cs=tinysys&fit=max&fm=jpg&ixid=M3w1MDcxMzJ8MHwxfHNlYXJjaHw4fHxwaXp6YSUyMGJha2luZyUyMG92ZW58ZW52MHx8fHwxNzE2NDAxMjAwfDA&ixlib=rb-4.0.3&q=80&w=1080');
-    background-size: cover;
-    background-position: center;
-    background-blend-mode: overlay; /* Miscela l'immagine con il colore di sfondo */
-    background-color: rgba(30, 30, 30, 0.85); /* Leggera opacità sul background scuro */
+    width: 800px; /* Larghezza fissa per dare l'aspetto di un poster */
+    min-height: 1100px; /* Altezza minima per simulare un formato poster (es. A3), si espande se il contenuto è maggiore */
+    background-color: #1e1e1e; /* Colore di sfondo del contenitore, leggermente più chiaro del body */
+    border: 10px solid var(--darker-accent-color); /* Bordo esterno con il colore d'accento più scuro */
+    padding: 40px; /* Padding interno per il contenuto */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7); /* Ombra pronunciata per dare profondità e contrasto */
+    text-align: center; /* Allinea il testo al centro */
+    position: relative; /* Imposta la posizione relativa per permettere il posizionamento assoluto degli pseudo-elementi */
+    overflow: hidden; /* Nasconde il contenuto che eccede i bordi del contenitore */
+    box-sizing: border-box; /* Include padding e bordo nella dimensione totale */
+    background-image: url('https://images.unsplash.com/photo-1549721799-a86d5257a02c?crop=entropy&cs=tinysys&fit=max&fm=jpg&ixid=M3w1MDcxMzJ8MHwxfHNlYXJjaHw4fHxwaXp6YSUyMGJha2luZyUyMG92ZW58ZW52MHx8fHwxNzE2NDAxMjAwfDA&ixlib=rb-4.0.3&q=80&w=1080'); /* Immagine di sfondo per un effetto visivo, con URL di fallback */
+    background-size: cover; /* L'immagine di sfondo copre l'intera area del contenitore */
+    background-position: center; /* Centra l'immagine di sfondo */
+    background-blend-mode: overlay; /* Miscela l'immagine di sfondo con il colore di sfondo, creando un effetto overlay */
+    background-color: rgba(30, 30, 30, 0.85); /* Colore di sfondo con leggera opacità per l'effetto overlay */
 }
 
+/* Pseudo-elemento ::before per creare un bordo interno tratteggiato */
 .poster-container::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border: 5px dashed var(--darker-accent-color); /* Bordo interno tratteggiato con il nuovo colore */
-    margin: 20px;
-    pointer-events: none; /* Non interferisce con il contenuto */
+    content: ''; /* Contenuto vuoto, necessario per visualizzare lo pseudo-elemento */
+    position: absolute; /* Posizionamento assoluto rispetto al contenitore relativo */
+    top: 0; /* Allinea il bordo in alto */
+    left: 0; /* Allinea il bordo a sinistra */
+    right: 0; /* Allinea il bordo a destra */
+    bottom: 0; /* Allinea il bordo in basso */
+    border: 5px dashed var(--darker-accent-color); /* Bordo interno tratteggiato con il colore d'accento più scuro */
+    margin: 20px; /* Margine interno per il bordo tratteggiato */
+    pointer-events: none; /* Impedisce al bordo di intercettare gli eventi del mouse, permettendo l'interazione con il contenuto sottostante */
 }
 
+/* Stili per l'intestazione della pagina */
 .header {
-    margin-bottom: 40px;
+    margin-bottom: 40px; /* Margine inferiore per separare dall'elemento successivo */
 }
 
+/* Stili per il titolo principale (H1) nell'intestazione */
 .header h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 4.5em; /* Titolo grande */
-    color: var(--accent-color); /* Nuovo colore */
-    margin-bottom: 5px;
-    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5); /* Ombra più scura per risalto */
+    font-family: 'Playfair Display', serif; /* Famiglia di font specifica per il titolo */
+    font-size: 4.5em; /* Dimensione del font molto grande */
+    color: var(--accent-color); /* Colore del testo usando la variabile d'accento */
+    margin-bottom: 5px; /* Margine inferiore ridotto */
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5); /* Ombra del testo per farlo risaltare */
 }
 
+/* Stili per il paragrafo (P) nell'intestazione */
 .header p {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.7em;
-    color: var(--accent-color); /* Nuovo colore */
-    margin-top: 0;
-    font-style: italic;
+    font-family: 'Playfair Display', serif; /* Famiglia di font specifica */
+    font-size: 1.7em; /* Dimensione del font */
+    color: var(--accent-color); /* Colore del testo usando la variabile d'accento */
+    margin-top: 0; /* Rimuove il margine superiore predefinito */
+    font-style: italic; /* Stile del font corsivo */
 }
 
+/* Stili per i titoli di sezione (H2) */
 .section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.8em;
-    color: var(--accent-color); /* Nuovo colore */
-    margin-top: 50px;
-    margin-bottom: 20px;
-    position: relative;
-    padding-bottom: 10px;
+    font-family: 'Playfair Display', serif; /* Famiglia di font specifica */
+    font-size: 2.8em; /* Dimensione del font */
+    color: var(--accent-color); /* Colore del testo usando la variabile d'accento */
+    margin-top: 50px; /* Margine superiore per separare dalla sezione precedente */
+    margin-bottom: 20px; /* Margine inferiore per separare dalla sezione successiva */
+    position: relative; /* Posizione relativa per il posizionamento assoluto del pseudo-elemento ::after */
+    padding-bottom: 10px; /* Padding inferiore per fare spazio alla linea sottostante */
 }
 
+/* Pseudo-elemento ::after per creare una linea sotto i titoli di sezione */
 .section-title::after {
-    content: '';
-    display: block;
-    width: 100px;
-    height: 5px;
-    background-color: var(--darker-accent-color); /* Nuovo colore */
-    margin: 10px auto 0;
-    border-radius: 3px;
+    content: ''; /* Contenuto vuoto */
+    display: block; /* Rende l'elemento un blocco per occupare la propria riga */
+    width: 100px; /* Larghezza della linea */
+    height: 5px; /* Altezza della linea */
+    background-color: var(--darker-accent-color); /* Colore della linea usando la variabile d'accento più scura */
+    margin: 10px auto 0; /* Centra la linea orizzontalmente e aggiunge margine superiore */
+    border-radius: 3px; /* Bordi arrotondati per la linea */
 }
 
+/* Stili per la descrizione della categoria */
 .category-description {
-    font-size: 1.1em;
-    color: #F0F0F0; /* Bianco sporco per le descrizioni */
-    margin-bottom: 30px;
-    font-style: italic;
+    font-size: 1.1em; /* Dimensione del font */
+    color: #F0F0F0; /* Colore del testo bianco sporco */
+    margin-bottom: 30px; /* Margine inferiore per separare dagli elementi successivi */
+    font-style: italic; /* Stile del font corsivo */
 }
 
+/* Stili per la lista delle pizze */
 .pizza-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+    list-style: none; /* Rimuove i pallini della lista */
+    padding: 0; /* Rimuove il padding predefinito della lista */
+    margin: 0; /* Rimuove il margine predefinito della lista */
 }
 
+/* Stili per ogni singolo elemento della pizza nella lista */
 .pizza-item {
-    margin-bottom: 35px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid #444; /* Linea sottile grigio scuro */
-    display: flex;
-    flex-direction: column;
+    margin-bottom: 35px; /* Margine inferiore per separare gli elementi della lista */
+    padding-bottom: 15px; /* Padding inferiore per separare dal bordo inferiore */
+    border-bottom: 1px solid #444; /* Bordo inferiore sottile e grigio scuro */
+    display: flex; /* Abilita Flexbox per organizzare il contenuto verticalmente */
+    flex-direction: column; /* Imposta la direzione degli elementi figli in colonna */
     align-items: center; /* Centra gli elementi figli orizzontalmente */
 }
 
+/* Rimuove il bordo inferiore dall'ultimo elemento della lista */
 .pizza-item:last-child {
     border-bottom: none;
 }
 
+/* Stili per il titolo (H3) di ogni pizza */
 .pizza-item h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.2em;
-    color: var(--accent-color); /* Nuovo colore */
-    margin: 0; /* Rimuovi margini predefiniti */
+    font-family: 'Playfair Display', serif; /* Famiglia di font specifica */
+    font-size: 2.2em; /* Dimensione del font */
+    color: var(--accent-color); /* Colore del testo usando la variabile d'accento */
+    margin: 0; /* Rimuove margini predefiniti */
     text-align: center; /* Centra il testo del nome della pizza */
-    margin-top: 10px; /* Aggiungi un po' di spazio tra immagine e nome */
+    margin-top: 10px; /* Aggiunge un po' di spazio tra l'immagine e il nome */
 }
 
+/* Stili per il paragrafo (P) della descrizione della pizza */
 .pizza-item p {
-    font-size: 1.1em;
-    color: #F0F0F0;
-    line-height: 1.5;
-    margin-bottom: 5px;
-    text-align: center;
+    font-size: 1.1em; /* Dimensione del font */
+    color: #F0F0F0; /* Colore del testo bianco sporco */
+    line-height: 1.5; /* Altezza della riga per una migliore leggibilità */
+    margin-bottom: 5px; /* Margine inferiore */
+    text-align: center; /* Centra il testo */
 }
 
+/* Stili per la tagline di ogni pizza */
 .pizza-item .tagline {
-    font-style: italic;
-    color: #F0F0F0;
-    font-size: 0.95em;
+    font-style: italic; /* Stile del font corsivo */
+    color: #F0F0F0; /* Colore del testo bianco sporco */
+    font-size: 0.95em; /* Dimensione del font leggermente più piccola */
 }
 
+/* Stili per il footer della pagina */
 .footer {
-    margin-top: 60px;
-    font-size: 1.1em;
-    color: #F0F0F0;
-    background-color: #0a0a0a;
-    padding: 20px 0;
-    border-top: 5px solid var(--darker-accent-color); /* Nuovo colore */
+    margin-top: 60px; /* Margine superiore per separare dal contenuto principale */
+    font-size: 1.1em; /* Dimensione del font */
+    color: #F0F0F0; /* Colore del testo bianco sporco */
+    background-color: #0a0a0a; /* Colore di sfondo del footer, molto scuro */
+    padding: 20px 0; /* Padding verticale */
+    border-top: 5px solid var(--darker-accent-color); /* Bordo superiore con il colore d'accento più scuro */
 }
 
+/* Stili per i paragrafi all'interno del footer */
 .footer p {
-    margin: 5px 0;
+    margin: 5px 0; /* Margine verticale ridotto */
 }
 
+/* Stili per le informazioni di contatto nel footer */
 .footer .contact-info {
-    font-weight: 600;
-    color: var(--accent-color); /* Nuovo colore */
+    font-weight: 600; /* Grassetto per il testo */
+    color: var(--accent-color); /* Colore del testo usando la variabile d'accento */
 }
 
+/* Stili per l'attribuzione AI nel footer */
 .footer .ai-attribution {
-    font-size: 0.50em;
-    color: #BBB;
-    margin-top: 15px;
+    font-size: 0.50em; /* Dimensione del font molto piccola */
+    color: #BBB; /* Colore del testo grigio chiaro */
+    margin-top: 15px; /* Margine superiore */
 }
 
-/* Immagini decorative */
+/* Stili per le immagini delle pizze */
 .pizza-image {
-    width: 250px; /* Immagine più grande */
-    height: 250px; /* Immagine più grande */
-    object-fit: cover;
-    border-radius: 8px;
-    border: 4px solid var(--darker-accent-color); /* Nuovo colore */
-    margin: 20px auto 0; /* Margine inferiore 0 per avvicinare il nome */
-    display: block;
-    cursor: pointer; /* Indica che l'immagine è cliccabile */
-    transition: transform 0.2s ease-in-out; /* Animazione per l'ingrandimento */
+    width: 250px; /* Larghezza dell'immagine */
+    height: 250px; /* Altezza dell'immagine */
+    object-fit: cover; /* Assicura che l'immagine copra l'area mantenendo le proporzioni, tagliando se necessario */
+    border-radius: 8px; /* Bordi arrotondati per l'immagine */
+    border: 4px solid var(--darker-accent-color); /* Bordo intorno all'immagine con il colore d'accento più scuro */
+    margin: 20px auto 0; /* Margine per posizionare l'immagine e centrarla */
+    display: block; /* Rende l'immagine un elemento di blocco per il posizionamento */
+    cursor: pointer; /* Cambia il cursore in un puntatore per indicare che l'immagine è cliccabile */
+    transition: transform 0.2s ease-in-out; /* Transizione fluida per l'effetto di ingrandimento al passaggio del mouse */
 }
 
+/* Effetto di ingrandimento leggero al passaggio del mouse sull'immagine */
 .pizza-image:hover {
-    transform: scale(1.05); /* Leggero ingrandimento al passaggio del mouse */
+    transform: scale(1.05); /* Ingrandisce l'immagine del 5% */
 }
 
-/* Stili per la navigazione delle categorie - Verticale */
+/* Stili per la navigazione delle categorie (bottoni) */
 .category-navigation {
-    margin-top: 30px;
-    margin-bottom: 40px;
-    display: flex;
-    flex-direction: column; /* Imposta la direzione dei pulsanti in verticale */
-    align-items: center; /* Centra i pulsanti orizzontalmente */
-    gap: 15px; /* Spazio tra i pulsanti verticali */
+    margin-top: 30px; /* Margine superiore */
+    margin-bottom: 40px; /* Margine inferiore */
+    display: flex; /* Abilita Flexbox per disporre i bottoni */
+    flex-direction: column; /* Imposta la direzione degli elementi figli in colonna (verticale) */
+    align-items: center; /* Centra i bottoni orizzontalmente */
+    gap: 15px; /* Spazio tra i bottoni verticali */
 }
 
+/* Stili per i bottoni di categoria */
 .category-button {
-    background-color: var(--button-bg-color); /* Rosso scuro per i bottoni */
-    color: #F0F0F0;
-    padding: 15px 30px;
-    border: none;
-    border-radius: 8px;
-    font-size: 1.4em;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-    width: 80%; /* Rendi i pulsanti più larghi per riempire lo spazio */
-    max-width: 300px; /* Limita la larghezza massima per non essere eccessivi */
+    background-color: var(--button-bg-color); /* Colore di sfondo del bottone usando la variabile */
+    color: #F0F0F0; /* Colore del testo del bottone */
+    padding: 15px 30px; /* Padding interno del bottone */
+    border: none; /* Rimuove il bordo predefinito */
+    border-radius: 8px; /* Bordi arrotondati */
+    font-size: 1.4em; /* Dimensione del font */
+    font-weight: 600; /* Grassetto per il testo */
+    cursor: pointer; /* Cambia il cursore in un puntatore */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transizione fluida per gli effetti di hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); /* Ombra per il bottone */
+    width: 80%; /* Larghezza del bottone, occupa l'80% del contenitore disponibile */
+    max-width: 300px; /* Limita la larghezza massima del bottone */
 }
 
+/* Effetto al passaggio del mouse sui bottoni di categoria */
 .category-button:hover {
-    background-color: var(--button-hover-color); /* Rosso più chiaro al hover */
-    transform: translateY(-2px);
+    background-color: var(--button-hover-color); /* Cambia il colore di sfondo usando la variabile */
+    transform: translateY(-2px); /* Sposta leggermente il bottone verso l'alto */
 }
 
+/* Stili per il bottone di categoria attivo */
 .category-button.active {
-    background-color: var(--accent-color); /* Nuovo colore quando attivo */
-    color: #1a1a1a; /* Testo scuro sul bottone attivo */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+    background-color: var(--accent-color); /* Colore di sfondo usando la variabile d'accento */
+    color: #1a1a1a; /* Colore del testo scuro per contrastare con il colore d'accento */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5); /* Ombra più pronunciata per il bottone attivo */
 }
 
-/* Stili per nascondere/mostrare le sezioni */
+/* Stili per nascondere le sezioni di pizza */
 .pizza-category-section {
-    display: none;
+    display: none; /* Nasconde la sezione di default */
 }
 
+/* Stili per mostrare la sezione di pizza attiva */
 .pizza-category-section.active-category {
-    display: block;
+    display: block; /* Mostra la sezione come blocco */
 }
 
 /* Stili per il Modal (finestra di dialogo per l'immagine ingrandita) */
 .modal {
-    display: none; /* Nascosto di default */
-    position: fixed; /* Posizione fissa per coprire l'intera finestra */
-    z-index: 1000; /* Posiziona il modal sopra tutto il resto */
-    left: 0;
-    top: 0;
-    width: 100%; /* Larghezza completa */
-    height: 100%; /* Altezza completa */
-    overflow: auto; /* Abilita lo scroll se l'immagine è troppo grande */
+    display: none; /* Nascosto di default. Viene mostrato con JavaScript quando un'immagine viene cliccata. */
+    position: fixed; /* Posizione fissa per coprire l'intera finestra del browser */
+    z-index: 1000; /* Mette il modal sopra tutti gli altri elementi */
+    left: 0; /* Inizia dall'angolo in alto a sinistra */
+    top: 0; /* Inizia dall'angolo in alto a sinistra */
+    width: 100%; /* Larghezza completa per coprire l'intera viewport */
+    height: 100%; /* Altezza completa per coprire l'intera viewport */
+    overflow: auto; /* Abilita lo scroll se il contenuto del modal è troppo grande */
     background-color: rgba(0,0,0,0.9); /* Sfondo nero semi-trasparente */
-    /*display: flex; /* Usa flexbox per centrare il contenuto */
-    justify-content: center; /* Centra orizzontalmente */
-    align-items: center; /* Centra verticalmente */
+    /* display: flex; Questo viene aggiunto da JS quando il modal è visibile */
+    justify-content: center; /* Centra orizzontalmente il contenuto */
+    align-items: center; /* Centra verticalmente il contenuto */
 }
 
+/* Stili per l'immagine all'interno del modal */
 .modal-content {
-    margin: auto;
-    display: block;
-    max-width: 80%; /* Larghezza massima dell'immagine nel modal */
-    max-height: 80%; /* Altezza massima dell'immagine nel modal */
-    border-radius: 8px;
-    border: 5px solid var(--accent-color);
+    margin: auto; /* Centra l'immagine all'interno del modal */
+    display: block; /* Rende l'immagine un elemento di blocco */
+    max-width: 80%; /* Larghezza massima dell'immagine (80% del modal) */
+    max-height: 80%; /* Altezza massima dell'immagine (80% del modal) */
+    border-radius: 8px; /* Bordi arrotondati */
+    border: 5px solid var(--accent-color); /* Bordo intorno all'immagine nel modal */
 }
 
-/* Pulsante di chiusura del modal */
+/* Stili per il pulsante di chiusura del modal */
 .close {
-    position: absolute;
-    top: 15px;
-    right: 35px;
-    color: #f1f1f1;
-    font-size: 40px;
-    font-weight: bold;
-    transition: 0.3s;
-    cursor: pointer;
+    position: absolute; /* Posizionamento assoluto rispetto al modal */
+    top: 15px; /* Distanza dal bordo superiore */
+    right: 35px; /* Distanza dal bordo destro */
+    color: #f1f1f1; /* Colore del testo */
+    font-size: 40px; /* Dimensione del font */
+    font-weight: bold; /* Grassetto */
+    transition: 0.3s; /* Transizione fluida per gli effetti di hover */
+    cursor: pointer; /* Cambia il cursore in un puntatore */
 }
 
+/* Effetto al passaggio del mouse e al focus sul pulsante di chiusura */
 .close:hover,
 .close:focus {
-    color: #bbb;
-    text-decoration: none;
-    cursor: pointer;
+    color: #bbb; /* Colore del testo più chiaro al hover/focus */
+    text-decoration: none; /* Rimuove la sottolineatura */
+    cursor: pointer; /* Cambia il cursore in un puntatore */
 }
 
-/* Animazione per il modal */
+/* Animazione per l'apertura del modal */
 .modal-content {
-    -webkit-animation-name: zoom;
-    -webkit-animation-duration: 0.6s;
-    animation-name: zoom;
-    animation-duration: 0.6s;
+    -webkit-animation-name: zoom; /* Nome dell'animazione per browser WebKit (es. Chrome, Safari) */
+    -webkit-animation-duration: 0.6s; /* Durata dell'animazione per browser WebKit */
+    animation-name: zoom; /* Nome dell'animazione per altri browser */
+    animation-duration: 0.6s; /* Durata dell'animazione per altri browser */
 }
 
+/* Keyframes per l'animazione di zoom per browser WebKit */
 @-webkit-keyframes zoom {
-    from {-webkit-transform:scale(0)}
-    to {-webkit-transform:scale(1)}
+    from {-webkit-transform:scale(0)} /* Inizia con una scala di 0 (invisibile) */
+    to {-webkit-transform:scale(1)} /* Termina con una scala di 1 (dimensione normale) */
 }
 
+/* Keyframes per l'animazione di zoom */
 @keyframes zoom {
-    from {transform:scale(0)}
-    to {transform:scale(1)}
+    from {transform:scale(0)} /* Inizia con una scala di 0 (invisibile) */
+    to {transform:scale(1)} /* Termina con una scala di 1 (dimensione normale) */
 }
 
 
 /* --- Media Queries per la responsività --- */
 
-/* Schermi piccoli (es. cellulari in verticale) */
+/* Stili applicati su schermi con larghezza massima di 768px (es. cellulari in verticale, tablet) */
 @media (max-width: 768px) {
     .poster-container {
         width: 95%; /* Occupa quasi tutta la larghezza dello schermo */
         min-height: auto; /* L'altezza si adatta al contenuto */
-        padding: 20px; /* Riduci il padding */
-        border-width: 5px; /* Bordo più sottile */
+        padding: 20px; /* Riduci il padding interno */
+        border-width: 5px; /* Bordo esterno più sottile */
     }
 
     .poster-container::before {
@@ -314,8 +340,8 @@ body {
 
     .section-title {
         font-size: 2em; /* Riduci la dimensione dei titoli di sezione */
-        margin-top: 30px;
-        margin-bottom: 15px;
+        margin-top: 30px; /* Riduci i margini */
+        margin-bottom: 15px; /* Riduci i margini */
     }
 
     .section-title::after {
@@ -325,18 +351,18 @@ body {
 
     .category-description {
         font-size: 1em; /* Riduci la dimensione della descrizione di categoria */
-        margin-bottom: 20px;
+        margin-bottom: 20px; /* Riduci il margine inferiore */
     }
 
     .pizza-item {
-        margin-bottom: 25px;
-        padding-bottom: 10px;
+        margin-bottom: 25px; /* Riduci i margini e il padding */
+        padding-bottom: 10px; /* Riduci i margini e il padding */
     }
 
     .pizza-image {
         width: 180px; /* Riduci la dimensione delle immagini delle pizze */
-        height: 180px;
-        margin: 15px auto 0;
+        height: 180px; /* Riduci la dimensione delle immagini delle pizze */
+        margin: 15px auto 0; /* Riduci il margine */
     }
 
     .pizza-item h3 {
@@ -352,8 +378,8 @@ body {
     }
 
     .category-navigation {
-        margin-top: 20px;
-        margin-bottom: 30px;
+        margin-top: 20px; /* Riduci i margini */
+        margin-bottom: 30px; /* Riduci i margini */
         gap: 10px; /* Riduci lo spazio tra i bottoni */
     }
 
@@ -365,58 +391,58 @@ body {
     }
 
     .footer {
-        margin-top: 40px;
-        padding: 15px 0;
-        font-size: 0.9em;
+        margin-top: 40px; /* Riduci i margini e il padding */
+        padding: 15px 0; /* Riduci i margini e il padding */
+        font-size: 0.9em; /* Riduci la dimensione del font */
     }
 
     .modal-content {
-        max-width: 90%;
-        max-height: 90%;
+        max-width: 90%; /* Riduci le dimensioni massime dell'immagine nel modal per schermi più piccoli */
+        max-height: 90%; /* Riduci le dimensioni massime dell'immagine nel modal per schermi più piccoli */
     }
 }
 
-/* Schermi molto piccoli (es. iPhone 5/SE) */
+/* Stili applicati su schermi con larghezza massima di 480px (es. iPhone 5/SE e dispositivi molto piccoli) */
 @media (max-width: 480px) {
     .poster-container {
-        padding: 15px;
-        border-width: 3px;
+        padding: 15px; /* Riduci ulteriormente il padding */
+        border-width: 3px; /* Riduci ulteriormente lo spessore del bordo */
     }
 
     .poster-container::before {
-        margin: 5px;
-        border-width: 2px;
+        margin: 5px; /* Riduci ulteriormente il margine del bordo interno */
+        border-width: 2px; /* Riduci ulteriormente lo spessore del bordo interno */
     }
 
     .header h1 {
-        font-size: 2.5em;
+        font-size: 2.5em; /* Riduci ulteriormente la dimensione del titolo principale */
     }
 
     .header p {
-        font-size: 1em;
+        font-size: 1em; /* Riduci ulteriormente la dimensione del sottotitolo */
     }
 
     .section-title {
-        font-size: 1.8em;
-        margin-top: 25px;
-        margin-bottom: 10px;
+        font-size: 1.8em; /* Riduci ulteriormente la dimensione dei titoli di sezione */
+        margin-top: 25px; /* Riduci ulteriormente i margini */
+        margin-bottom: 10px; /* Riduci ulteriormente i margini */
     }
 
     .pizza-image {
-        width: 150px;
-        height: 150px;
+        width: 150px; /* Riduci ulteriormente la dimensione delle immagini delle pizze */
+        height: 150px; /* Riduci ulteriormente la dimensione delle immagini delle pizze */
     }
 
     .pizza-item h3 {
-        font-size: 1.6em;
+        font-size: 1.6em; /* Riduci ulteriormente la dimensione del nome della pizza */
     }
 
     .pizza-item p {
-        font-size: 0.9em;
+        font-size: 0.9em; /* Riduci ulteriormente la dimensione della descrizione della pizza */
     }
 
     .category-button {
-        font-size: 1.1em;
-        padding: 10px 15px;
+        font-size: 1.1em; /* Riduci ulteriormente la dimensione del testo dei bottoni */
+        padding: 10px 15px; /* Riduci ulteriormente il padding dei bottoni */
     }
 }
