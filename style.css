@@ -1,0 +1,348 @@
+/* Stili generali della locandina */
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #121212; /* Sfondo scuro quasi nero */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Altezza minima per centrare il contenuto */
+    box-sizing: border-box;
+}
+
+/* Colore arancione più tenue e tendente al giallo */
+:root {
+    --accent-color: #FFDDAA; /* Arancione tenue tendente al giallo */
+    --darker-accent-color: #FFC87C; /* Leggermente più scuro per bordi/sottolineature */
+    --button-bg-color: #8B0000; /* Rosso scuro per i bottoni */
+    --button-hover-color: #A52A2A; /* Rosso più chiaro al hover */
+}
+
+.poster-container {
+    width: 800px; /* Larghezza fissa per simulare una locandina */
+    min-height: 1100px; /* Altezza minima per simulare un formato poster (es. A3) */
+    background-color: #1e1e1e; /* Sfondo scuro per il contenuto, leggermente più chiaro del body */
+    border: 10px solid var(--darker-accent-color); /* Bordo con il nuovo colore */
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7); /* Ombra più pronunciata per contrasto */
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+    /* Immagine di sfondo leggera con fallback per l'URL */
+    background-image: url('https://images.unsplash.com/photo-1549721799-a86d5257a02c?crop=entropy&cs=tinysys&fit=max&fm=jpg&ixid=M3w1MDcxMzJ8MHwxfHNlYXJjaHw4fHxwaXp6YSUyMGJha2luZyUyMG92ZW58ZW52MHx8fHwxNzE2NDAxMjAwfDA&ixlib=rb-4.0.3&q=80&w=1080');
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: overlay; /* Miscela l'immagine con il colore di sfondo */
+    background-color: rgba(30, 30, 30, 0.85); /* Leggera opacità sul background scuro */
+}
+
+.poster-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 5px dashed var(--darker-accent-color); /* Bordo interno tratteggiato con il nuovo colore */
+    margin: 20px;
+    pointer-events: none; /* Non interferisce con il contenuto */
+}
+
+.header {
+    margin-bottom: 40px;
+}
+
+.header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 4.5em; /* Titolo grande */
+    color: var(--accent-color); /* Nuovo colore */
+    margin-bottom: 5px;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5); /* Ombra più scura per risalto */
+}
+
+.header p {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7em;
+    color: var(--accent-color); /* Nuovo colore */
+    margin-top: 0;
+    font-style: italic;
+}
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8em;
+    color: var(--accent-color); /* Nuovo colore */
+    margin-top: 50px;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 5px;
+    background-color: var(--darker-accent-color); /* Nuovo colore */
+    margin: 10px auto 0;
+    border-radius: 3px;
+}
+
+.category-description {
+    font-size: 1.1em;
+    color: #F0F0F0; /* Bianco sporco per le descrizioni */
+    margin-bottom: 30px;
+    font-style: italic;
+}
+
+.pizza-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.pizza-item {
+    margin-bottom: 35px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #444; /* Linea sottile grigio scuro */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra gli elementi figli orizzontalmente */
+}
+
+.pizza-item:last-child {
+    border-bottom: none;
+}
+
+.pizza-item h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2em;
+    color: var(--accent-color); /* Nuovo colore */
+    margin: 0; /* Rimuovi margini predefiniti */
+    text-align: center; /* Centra il testo del nome della pizza */
+    margin-top: 10px; /* Aggiungi un po' di spazio tra immagine e nome */
+}
+
+.pizza-item p {
+    font-size: 1.1em;
+    color: #F0F0F0;
+    line-height: 1.5;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.pizza-item .tagline {
+    font-style: italic;
+    color: #F0F0F0;
+    font-size: 0.95em;
+}
+
+.footer {
+    margin-top: 60px;
+    font-size: 1.1em;
+    color: #F0F0F0;
+    background-color: #0a0a0a;
+    padding: 20px 0;
+    border-top: 5px solid var(--darker-accent-color); /* Nuovo colore */
+}
+
+.footer p {
+    margin: 5px 0;
+}
+
+.footer .contact-info {
+    font-weight: 600;
+    color: var(--accent-color); /* Nuovo colore */
+}
+
+.footer .ai-attribution {
+    font-size: 0.50em;
+    color: #BBB;
+    margin-top: 15px;
+}
+
+/* Immagini decorative */
+.pizza-image {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 4px solid var(--darker-accent-color); /* Nuovo colore */
+    margin: 20px auto 0; /* Margine inferiore 0 per avvicinare il nome */
+    display: block;
+}
+
+/* Stili per la navigazione delle categorie - Verticale */
+.category-navigation {
+    margin-top: 30px;
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column; /* Imposta la direzione dei pulsanti in verticale */
+    align-items: center; /* Centra i pulsanti orizzontalmente */
+    gap: 15px; /* Spazio tra i pulsanti verticali */
+}
+
+.category-button {
+    background-color: var(--button-bg-color); /* Rosso scuro per i bottoni */
+    color: #F0F0F0;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.4em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    width: 80%; /* Rendi i pulsanti più larghi per riempire lo spazio */
+    max-width: 300px; /* Limita la larghezza massima per non essere eccessivi */
+}
+
+.category-button:hover {
+    background-color: var(--button-hover-color); /* Rosso più chiaro al hover */
+    transform: translateY(-2px);
+}
+
+.category-button.active {
+    background-color: var(--accent-color); /* Nuovo colore quando attivo */
+    color: #1a1a1a; /* Testo scuro sul bottone attivo */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* Stili per nascondere/mostrare le sezioni */
+.pizza-category-section {
+    display: none;
+}
+
+.pizza-category-section.active-category {
+    display: block;
+}
+
+/* --- Media Queries per la responsività --- */
+
+/* Schermi piccoli (es. cellulari in verticale) */
+@media (max-width: 768px) {
+    .poster-container {
+        width: 95%; /* Occupa quasi tutta la larghezza dello schermo */
+        min-height: auto; /* L'altezza si adatta al contenuto */
+        padding: 20px; /* Riduci il padding */
+        border-width: 5px; /* Bordo più sottile */
+    }
+
+    .poster-container::before {
+        margin: 10px; /* Riduci il margine del bordo interno */
+        border-width: 3px; /* Riduci lo spessore del bordo interno */
+    }
+
+    .header h1 {
+        font-size: 3em; /* Riduci la dimensione del titolo principale */
+    }
+
+    .header p {
+        font-size: 1.2em; /* Riduci la dimensione del sottotitolo */
+    }
+
+    .section-title {
+        font-size: 2em; /* Riduci la dimensione dei titoli di sezione */
+        margin-top: 30px;
+        margin-bottom: 15px;
+    }
+
+    .section-title::after {
+        width: 70px; /* Riduci la larghezza della linea sotto il titolo */
+        height: 3px; /* Riduci l'altezza della linea */
+    }
+
+    .category-description {
+        font-size: 1em; /* Riduci la dimensione della descrizione di categoria */
+        margin-bottom: 20px;
+    }
+
+    .pizza-item {
+        margin-bottom: 25px;
+        padding-bottom: 10px;
+    }
+
+    .pizza-image {
+        width: 150px; /* Riduci la dimensione delle immagini delle pizze */
+        height: 150px;
+        margin: 15px auto 0;
+    }
+
+    .pizza-item h3 {
+        font-size: 1.8em; /* Riduci la dimensione del nome della pizza */
+    }
+
+    .pizza-item p {
+        font-size: 0.95em; /* Riduci la dimensione della descrizione della pizza */
+    }
+
+    .pizza-item .tagline {
+        font-size: 0.85em; /* Riduci la dimensione della tagline */
+    }
+
+    .category-navigation {
+        margin-top: 20px;
+        margin-bottom: 30px;
+        gap: 10px; /* Riduci lo spazio tra i bottoni */
+    }
+
+    .category-button {
+        padding: 12px 20px; /* Riduci il padding dei bottoni */
+        font-size: 1.2em; /* Riduci la dimensione del testo dei bottoni */
+        width: 90%; /* Aumenta leggermente la larghezza per i cellulari */
+        max-width: 250px; /* Limita la larghezza massima */
+    }
+
+    .footer {
+        margin-top: 40px;
+        padding: 15px 0;
+        font-size: 0.9em;
+    }
+}
+
+/* Schermi molto piccoli (es. iPhone 5/SE) */
+@media (max-width: 480px) {
+    .poster-container {
+        padding: 15px;
+        border-width: 3px;
+    }
+
+    .poster-container::before {
+        margin: 5px;
+        border-width: 2px;
+    }
+
+    .header h1 {
+        font-size: 2.5em;
+    }
+
+    .header p {
+        font-size: 1em;
+    }
+
+    .section-title {
+        font-size: 1.8em;
+        margin-top: 25px;
+        margin-bottom: 10px;
+    }
+
+    .pizza-image {
+        width: 120px;
+        height: 120px;
+    }
+
+    .pizza-item h3 {
+        font-size: 1.6em;
+    }
+
+    .pizza-item p {
+        font-size: 0.9em;
+    }
+
+    .category-button {
+        font-size: 1.1em;
+        padding: 10px 15px;
+    }
+}
