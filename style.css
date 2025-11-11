@@ -381,16 +381,25 @@ body {
     }
 
     .category-navigation {
-        margin-top: 20px; /* Riduci i margini */
-        margin-bottom: 30px; /* Riduci i margini */
-        gap: 10px; /* Riduci lo spazio tra i bottoni */
+         margin-top: 20px;
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    width: 100%;
+    flex-wrap: wrap; /* Permette ai bottoni di andare a capo se lo schermo è troppo stretto */
     }
 
     .category-button {
-        padding: 12px 20px; /* Riduci il padding dei bottoni */
-        font-size: 1.2em; /* Riduci la dimensione del testo dei bottoni */
-        width: 90%; /* Aumenta leggermente la larghezza per i cellulari */
-        max-width: 250px; /* Limita la larghezza massima */
+       flex: 1;                /* I bottoni si adattano automaticamente alla larghezza disponibile */
+    text-align: center;     /* Centra il testo */
+    padding: 12px 20px;
+    font-size: 1.2em;
+    min-width: 100px;       /* Imposta una larghezza minima per evitare bottoni troppo stretti */
+    max-width: 250px;       /* Limita la larghezza massima */
+    box-sizing: border-box; /* Evita che padding influenzi la larghezza totale */
     }
 
     .footer {
@@ -444,8 +453,16 @@ body {
         font-size: 0.9em; /* Riduci ulteriormente la dimensione della descrizione della pizza */
     }
 
+    .category-navigation {
+        justify-content: center; /* Centra i bottoni se vanno a capo */
+        gap: 10px;
+    }
+
     .category-button {
-        font-size: 1.1em; /* Riduci ulteriormente la dimensione del testo dei bottoni */
-        padding: 10px 15px; /* Riduci ulteriormente il padding dei bottoni */
+        flex: 1 1 calc(50% - 10px); /* Tre bottoni per riga se lo spazio lo consente */
+        font-size: 1em;
+        padding: 10px 15px;
+        width: auto; /* Lascialo gestire da flex */
+        max-width: none; /* Rimuove il limite se serve */
     }
 }
