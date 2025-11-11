@@ -116,16 +116,16 @@ body {
 .pizza-item {
     margin-bottom: 35px; /* Margine inferiore per separare gli elementi della lista */
     padding-bottom: 15px; /* Padding inferiore per separare dal bordo inferiore */
-    border-bottom: 1px solid #444; /* Bordo inferiore sottile e grigio scuro */
+    border-top: 1px solid #444; /* Bordo superiore sottile e grigio scuro (prima era inferiore e poi tolto nella funzione successiva)*/
     display: flex; /* Abilita Flexbox per organizzare il contenuto verticalmente */
     flex-direction: column; /* Imposta la direzione degli elementi figli in colonna */
     align-items: center; /* Centra gli elementi figli orizzontalmente */
 }
 
-/* Rimuove il bordo inferiore dall'ultimo elemento della lista */
+/* Rimuove il bordo inferiore dall'ultimo elemento della lista
 .pizza-item:last-child {
     border-bottom: none;
-}
+}*/
 
 /* Stili per il titolo (H3) di ogni pizza */
 .pizza-item h3 {
@@ -155,12 +155,12 @@ body {
 
 /* Stili per il footer della pagina */
 .footer {
-    margin-top: 60px; /* Margine superiore per separare dal contenuto principale */
-    font-size: 1.1em; /* Dimensione del font */
+    margin-top: 50px; /* Margine superiore per separare dal contenuto principale */
+    font-size: 1.0em; /* Dimensione del font */
     color: #F0F0F0; /* Colore del testo bianco sporco */
     background-color: #0a0a0a; /* Colore di sfondo del footer, molto scuro */
-    padding: 20px 0; /* Padding verticale */
-    border-top: 5px solid var(--darker-accent-color); /* Bordo superiore con il colore d'accento più scuro */
+    padding: 5px 0; /* Padding verticale */
+    border-top: 3px solid var(--darker-accent-color); /* Bordo superiore con il colore d'accento più scuro */
 }
 
 /* Stili per i paragrafi all'interno del footer */
@@ -178,7 +178,7 @@ body {
 .footer .ai-attribution {
     font-size: 0.50em; /* Dimensione del font molto piccola */
     color: #BBB; /* Colore del testo grigio chiaro */
-    margin-top: 15px; /* Margine superiore */
+    margin-top: 5px; /* Margine superiore */
 }
 
 /* Stili per le immagini delle pizze */
@@ -403,8 +403,8 @@ body {
     }
 
     .footer {
-        margin-top: 40px; /* Riduci i margini e il padding */
-        padding: 15px 0; /* Riduci i margini e il padding */
+        margin-top: 1px; /* Riduci i margini e il padding */
+        padding: 1px 0; /* Riduci i margini e il padding */
         font-size: 0.9em; /* Riduci la dimensione del font */
     }
 
