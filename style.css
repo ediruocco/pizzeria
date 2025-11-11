@@ -86,13 +86,14 @@ body {
 }
 
 /* Pseudo-elemento ::after per creare una linea sotto i titoli di sezione */
-.section-title::after {
+.section-title::before {
     content: ''; /* Contenuto vuoto */
     display: block; /* Rende l'elemento un blocco per occupare la propria riga */
     width: 100px; /* Larghezza della linea */
     height: 5px; /* Altezza della linea */
     background-color: var(--darker-accent-color); /* Colore della linea usando la variabile d'accento più scura */
     margin: 10px auto 0; /* Centra la linea orizzontalmente e aggiunge margine superiore */
+    margin-bottom: 10px;
     border-radius: 3px; /* Bordi arrotondati per la linea */
 }
 
