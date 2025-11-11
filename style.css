@@ -201,12 +201,14 @@ body {
 
 /* Stili per la navigazione delle categorie (bottoni) */
 .category-navigation {
-    margin-top: 30px; /* Margine superiore */
+    margin-top: 20px; /* Margine superiore */
     margin-bottom: 40px; /* Margine inferiore */
     display: flex; /* Abilita Flexbox per disporre i bottoni */
-    flex-direction: column; /* Imposta la direzione degli elementi figli in colonna (verticale) */
+    flex-direction: row; /* Imposta la direzione degli elementi figli in riga (orizzontale) */
     align-items: center; /* Centra i bottoni orizzontalmente */
+    justify-content: center;
     gap: 15px; /* Spazio tra i bottoni verticali */
+    width: 100%;
 }
 
 /* Stili per i bottoni di categoria */
